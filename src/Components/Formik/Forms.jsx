@@ -3,12 +3,14 @@ import Styles from './form.module.css'
 import { Formik, Form, Field,ErrorMessage } from 'formik';
 import * as Yup from 'yup'; 
 import CustomInputField from './CustomeInput/MuiInput';
+import CustomDropDown from './CustomeDropDown/CustomDropDown';
 const validationSchema = Yup.object().shape({
   photo: Yup.string().required('Photo is required'),
   name: Yup.string().required('Name is required'),
   email: Yup.string().email('Invalid email address').required('Email is required'),
   phone: Yup.string().required('Phone is required'),
-  radio: Yup.string().required('Please Select Radio Button'),   
+  radio: Yup.string().required('Please Select Radio Button'),  
+  course:Yup.string().required('Please Select Your Course') ,
 });
 
 const Forms = () => {
@@ -18,10 +20,12 @@ const Forms = () => {
     email: '',
     phone: '',
     radio:'',
+    course:'',
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values,{resetForm}) => {
     console.log(values);
+    resetForm();
   };
 
   return (
@@ -64,6 +68,15 @@ const Forms = () => {
              </div>
                 <ErrorMessage name="radio" component="div" className={Styles.ErrorMessage} />
              </div> 
+             
+
+            <div className={Styles.container}>
+           <div><Field name="course" label="Select Course"  component={CustomDropDown}/></div>
+           <ErrorMessage name="course" component="div" className={Styles.ErrorMessage} />
+           </div>
+
+
+
 
            <div className={Styles.container}>
            <div id={Styles.BtnOuter}><button type="submit" className={Styles.subBtn}>Submit</button></div>

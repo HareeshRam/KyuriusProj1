@@ -19,15 +19,15 @@ function App() {
   return (
     <>
     <BrowserRouter>
-    <Navbar/>
-    <ToastContainer />
+    {/* <Navbar/>
+    <ToastContainer /> */}
     <Routes>
-      <Route path='/' element={<Cards/>}/>
-     <Route path='/products' element={<Products/>}/>
+      {/* <Route path='/' element={<Cards/>}/> */}
+      {/* <Route path='/products' element={<Products/>}/>
       <Route path="/wishlist" element={<Wishlist/>}/>
-      <Route path="/placeOrder" element={<PlaceOrder/>}/>
+      <Route path="/placeOrder" element={<PlaceOrder/>}/> */}
       {/* <Route path="/" element={<Forms/>}/> */} 
-      {/* <Route path="/" element={<Forms/>}/> */}
+      <Route path="/" element={<Forms/>}/>
     </Routes>
     </BrowserRouter>
    </>

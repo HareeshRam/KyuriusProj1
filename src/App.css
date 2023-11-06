@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 } */
+/* .css-1d3z3hw-MuiOutlinedInput-notchedOutline:root:focus-visible{
+  border: 1px solid red !important;
+} */
+/* .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+  border: 2px solid red !important;
+  color: red;
+} */
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:root{
+  color: red !important;
+}
