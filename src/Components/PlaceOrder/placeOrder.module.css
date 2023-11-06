@@ -1,0 +1,78 @@
+
+.orderpage{
+    height: auto;
+    width: 100%;
+    /* background-color: bisque; */
+    /* padding: 1rem; */
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+.orderInnerPage{
+    height: auto;
+    width: 80%;
+    padding: 1rem ;
+    box-shadow: 0 0 5px ;
+}
+/* .orderInnerPage:hover{
+    transition-duration:1s;
+    box-shadow: 10px 10px 50px black;
+    transform: scale(1.01);
+} */
+.InputContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.Input{
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2px ;
+    padding: 0 1rem;
+    box-sizing:border-box;
+}
+
+.MyMui span{
+    display: none;
+}
+/* .MyMui div div div div{
+  display: grid;
+  grid-template-columns: 1fr;
+} */
+.payBtn{
+background-color: crimson;
+height: 40px;
+width: 150px;
+border: none;
+border-radius: 10px;
+color: white;
+cursor: pointer;
+}
+
+@media screen and (max-width:800px) {
+    .InputContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+   
+}
+@media screen and (max-width:550px) {
+    .InputContainer{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .MyMui div div div div{
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+}
