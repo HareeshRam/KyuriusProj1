@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from './products.module.css'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -37,21 +37,34 @@ const deleteProduct=(prodId)=>{
    let handlegoOrderPage=()=>{
     navigate('/placeOrder')
    }
+  const [hovered,setHovered]=useState(false);
+
   return (
     <div>
+         <h3
+        style={{
+          color:"crimson",
+          margin:'80px 0 5px 0',
+          textAlign:'center',
+
+          }}>Welcome to Karts</h3>
 <nav className={Styles.bottomNav}>
-  <h3 className={Styles.priceHead}>Total Price : <span className={Styles.totalPrice}>${price}</span></h3>
+  <div className={Styles.priceHead}><span className={Styles.tot}>Total Price : </span><span className={Styles.totalPrice}>${price}</span></div>
   <div>
     <button className={Styles.btnBuy} onClick={handlegoOrderPage}>BUY NOW</button>
   </div>
  </nav>
+
  <div className={Styles.ram}>
         {userProd && userProd
           ? userProd.map((item) => {
               return (
                 <div className={Styles.cardDiv} key={item.id}>
-                  <Card sx={{ maxWidth: 345 }}  onMouseEnter={() => setHovered(true)} onMouseLeave=
-                    {() => setHovered(false)}>
+                  <Card 
+                  sx={{ maxWidth: 345 }}  
+                  onMouseEnter={() => setHovered(true)} 
+                  onMouseLeave={() => setHovered(false)}
+                  >
                    
                     <CardActionArea
                       className={Styles.rrr}

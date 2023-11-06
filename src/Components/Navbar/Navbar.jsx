@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Styles from './navbar.module.css'
 import { AiFillHome } from "react-icons/ai";
-import { BiLogoSketch } from "react-icons/bi";
 import { BsBagHeartFill } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
@@ -28,8 +27,7 @@ const Navbar = () => {
        setCount(newCount);
       }
      },[ram])
-     console.log(ram,'raaaaaaam');
-     console.log(count,"kkkk");
+     console.log(ram,'maaaaa'); 
   return (
     <div>
     <nav className={Styles.NavBar}>
@@ -39,7 +37,7 @@ const Navbar = () => {
        </main>  
        <main className={Styles.ListContainer}>
        <div className={Styles.lists}>
-            <li onClick={handlegoHomePage} >HOME</li>
+            <li onClick={handlegoHomePage}>HOME</li>
             <li>BRAND</li>
             <li>PRODUCTS</li>
            </div> 
@@ -52,18 +50,15 @@ const Navbar = () => {
        </main>  
        <main className={Styles.CartContainer}>
        <div className={Styles.rightLogos}>
-       <AiFillHome color='white' className={Styles.heart} onClick={handlegoHomePage} style={{marginTop:"7px"}} id={Styles.HomeIcon} />
+        <AiFillHome color='white' className={Styles.heart} onClick={handlegoHomePage} style={{marginTop:"7px"}} id={Styles.HomeIcon} />
         <BsBagHeartFill color='white' className={Styles.heart} onClick={handlegoWishlistPage} style={{marginTop:"6px"}}/>
         <PiShoppingCartSimpleFill color='white' onClick={handlegoProductsPage}  className={Styles.heart} style={{marginTop:"7px"}}/>
         <p className={Styles.Counter}>{count}</p>
       </div>
        </main>  
-      
       </article>
-
     </nav>
     </div>
   )
 }
-
 export default Navbar

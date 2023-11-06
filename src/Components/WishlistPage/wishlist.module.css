@@ -7,11 +7,10 @@
    align-items: start;
    flex-wrap: wrap;
    gap: 2rem;
-   margin-top:70px;
+   /* margin-top:70px; */
    padding: 1rem;
-   background-color:white;
+   /* background-color:yellow; */
 }
-
 .head2,.head1{
     font-family:'Montserrat', sans-serif;
     font-weight: 700;
@@ -48,6 +47,7 @@ padding: 0rem 1rem;
     width: 100%;
     margin-top: 10px;
     gap:1rem;
+    /* top: 10rem; */
 }
 .karts{
     border: 1px solid grey;
@@ -70,6 +70,8 @@ padding: 0rem 1rem;
     background-position: left;
     color: #fff;
     border: none;
+
+    /* box-shadow: 20px 20px 20px red inset; */
 }
 .heartLogo{
     height: 20px!important;
@@ -91,6 +93,12 @@ padding: 0rem 1rem;
     right: 1rem;
     border-radius: 100%;
     background-color: #fff;
+    height: 30px;
+    width: 30px;
+}
+.deleteLogo{
+    height: 30px;
+    width: 30px;
 }
 @media screen and (max-width:300px) {
     .ram{

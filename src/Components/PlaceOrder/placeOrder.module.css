@@ -2,9 +2,7 @@
 .orderpage{
     height: auto;
     width: 100%;
-    /* background-color: bisque; */
-    /* padding: 1rem; */
-    margin-top: 80px;
+    margin: 80px 0 50px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,11 +14,7 @@
     padding: 1rem ;
     box-shadow: 0 0 5px ;
 }
-/* .orderInnerPage:hover{
-    transition-duration:1s;
-    box-shadow: 10px 10px 50px black;
-    transform: scale(1.01);
-} */
+
 .InputContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

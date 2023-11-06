@@ -1,53 +1,47 @@
-import React, { useEffect, useState } from "react";
-import Styles from "./card.module.css";
-import axios from "axios";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { BsFillCircleFill } from "react-icons/bs";
-import { toast } from "react-toastify";
-const Cards = () => {
-  const [productDetails, setProductDetails] = useState([]);
-  const [color, setColor] = useState(false);
-  const [specificId, setSpecificId] = useState(null);
+import React, {useEffect, useState } from 'react'
+import Styles from './wishlist.module.css'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import { MdDeleteForever } from "react-icons/md";
+import { toast } from 'react-toastify';
+const Wishlist = () => {
+  
+  const [userProd,setUserProd]=useState([]);
+  const storedCarts=localStorage.getItem('Wishlist');
+  console.log(userProd,"user");
 
-  console.log(productDetails);
+  useEffect(()=>{
+  if(storedCarts){
+    setUserProd(JSON.parse(storedCarts))
+  }
+  },[]) 
 
-  useEffect(() => {
-    handleProducts();
-  }, []);
-
-  const handleProducts = async () => {
-    let response = await axios.get("https://dummyjson.com/products");
-    let data = await response.data;
-    setProductDetails(data);
-  };
-  const CartsPage = (item) => {
-    const existingCarts = JSON.parse(localStorage.getItem("Carts")) || [];
-    const updatedCarts = [...existingCarts, item];
-    localStorage.setItem("Carts", JSON.stringify(updatedCarts));
-    toast("Card  Added to carts");
-  };
-
-  const WishlistPage = (item) => {
-    const existingWishlist = JSON.parse(localStorage.getItem("Wishlist")) || [];
-    const updatedWishlist = [...existingWishlist, item];
-    localStorage.setItem("Wishlist", JSON.stringify(updatedWishlist));
-    setColor(true);
-    setSpecificId(item.id);
-    toast("Successfully Added in Wishlist");
-  };
-              const [Hovered,setHovered]=useState(false)
-
+const deleteProduct=(prodId)=>{
+  const UpdatedUserProd=userProd.filter(item => item.id!==prodId);
+  setUserProd(UpdatedUserProd);
+  localStorage.setItem('Wishlist',JSON.stringify(UpdatedUserProd));
+  toast('card removed from wishlist')
+}
+const CartsPage=(item)=>{
+    const existingCarts=JSON.parse(localStorage.getItem('Carts'))||[];
+    const updatedCarts=[...existingCarts,item];
+     localStorage.setItem('Carts',JSON.stringify(updatedCarts))
+     toast("card Added to carts")
+  }
   return (
     <div>
-      <div className={Styles.ram}>
-        {productDetails && productDetails.products
-          ? productDetails.products.map((item) => {
-
+       <h3
+        style={{
+          color:"crimson",
+          margin:'80px 0 5px 0',
+          textAlign:'center',
+          }}>Welcome to Wishlist</h3>
+       <div className={Styles.ram}>
+        {userProd && userProd
+          ? userProd.map((item) => {
               return (
                 <div className={Styles.cardDiv} key={item.id}>
                   <Card sx={{ maxWidth: 345 }}  onMouseEnter={() => setHovered(true)} onMouseLeave=
@@ -113,31 +107,9 @@ const Cards = () => {
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                           <div className={Styles.colorCircle}>
-                            {/* <div className={Styles.colorCircle1}>
-            <BsFillCircleFill color='orangered'/>
-            <BsFillCircleFill color='green'/>
-            <BsFillCircleFill color='yellow'/>
-            <BsFillCircleFill color='red'/>
-
-             </div> */}
-                            <div
-                              onClick={() => WishlistPage(item)}
-                              className={Styles.HeartLogoDiv}
-                              // style={{ display: Hovered ? "block" : "none" }}
-                            >
-                              {item.id === specificId ? (
-                                <AiFillHeart
-                                  key={item.id}
-                                  className={Styles.heartLogo}
-                                  style={{ color: "red" }}
-                                />
-                              ) : (
-                                <AiOutlineHeart
-                                  key={item.id}
-                                  className={Styles.heartLogo}
-                                />
-                              )}
-                            </div>
+                              <div className={Styles.HeartLogoDiv}>
+                              <MdDeleteForever color='red' className={Styles.deleteLogo} onClick={()=>deleteProduct(item.id)} />
+                            </div>  
                           </div>
                         </Typography>
                         <Typography
@@ -172,10 +144,10 @@ const Cards = () => {
                 </div>
               );
             })
-          : " "}
+          : " "
+          }
       </div>
     </div>
-  );
-};
-
-export default Cards;
+  )
+}
+export default Wishlist

@@ -40,13 +40,31 @@
 .read-the-docs {
   color: #888;
 } */
-/* .css-1d3z3hw-MuiOutlinedInput-notchedOutline:root:focus-visible{
-  border: 1px solid red !important;
-} */
-/* .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
-  border: 2px solid red !important;
+
+/* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  border: 3px solid red !important;
   color: red;
 } */
-.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:root{
-  color: red !important;
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+
 }
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus{
+  border:  2.5px solid green;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  border-radius: 4px;
+}
+/* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus>.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+  color: green;
+  border: 2px solid green;
+  background-color:red;
+} */
+/* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  background-color: red;
+} */
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
+.MuiOutlinedInput-notchedOutline{
+  /* color: green; */
+}
+

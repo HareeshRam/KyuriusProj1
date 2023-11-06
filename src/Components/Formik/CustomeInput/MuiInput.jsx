@@ -11,14 +11,19 @@ const CustomInputField = ({ label, field}) => {
       value={value}
       onChange={onChange}
       onBlur={onBlur}
-      // InputLabelProps={{
-      //   style:
-      //    {color: 'black',
-      //     fontSize: '16px',
-      //    },
-      // }} 
+      InputLabelProps={{
+        style:
+         {color: 'green',
+          fontSize: '16px',
+          backgroundColor:"white",
+          position:"absolute",
+          zIndex:2,
+          textAlign:"center",
+          width:'60px'
+         },
+      }} 
       sx={{
-        width:"100%",      
+        width:"100%", 
       }}
     />
   );
